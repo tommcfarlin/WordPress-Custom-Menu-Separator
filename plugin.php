@@ -3,13 +3,13 @@
 Plugin Name: Custom Menu Separator
 Plugin URI: http://tommcfarlin.com/wordpress-menu-separator
 Description: A simple plugin for adding a custom menu separator in the WordPress administration menu.
-Version: 1.0
+Version: 1.1
 Author: Tom McFarlin
 Author URI: http://tommcfarlin.com
 Author Email: tom@tommcfarlin.com
 License:
 
-  Copyright 2012 Tom McFarlin (tom@tommcfarlin.com)
+  Copyright 2012 - 2013 Tom McFarlin (tom@tommcfarlin.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as 
@@ -37,8 +37,8 @@ class Custom_Menu_Separator {
 	 */
 	function __construct() {
 	
-		add_action( 'init_custom_menu_separator', array( &$this, 'add_admin_menu_separator' ) );
-		add_action( 'init', array( &$this, 'set_admin_menu_separator' ) );
+		add_action( 'admin_init', array( $this, 'add_admin_menu_separator' ) );
+		add_action( 'init', array( $this, 'set_admin_menu_separator' ) );
 
 	} // end constructor
 	
@@ -49,16 +49,16 @@ class Custom_Menu_Separator {
 	/**
 	 * Adds a menu separator to the administration menu at the specified position.
 	 *
-	 * @params	$position	Where to insert the custom separator
+	 * @param	int	$position	Where to insert the custom separator
 	 */
-	function add_admin_menu_separator( $position ) {
+	publc function add_admin_menu_separator( $position ) {
 		
 		global $menu;
 
 		// NOTE:	If using this in a production environment, this would be a good place to
 		//			make sure that the $position isn't one of the existing menu items values.
 
-		$menu[$position] = array(
+		$menu[ $position ] = array(
 			0	=>	'',							// The text of the menu item
 			1	=>	'read',						// Permission level required to view the item
 			2	=>	'separator' . $position,	// The ID of the menu item
@@ -72,18 +72,16 @@ class Custom_Menu_Separator {
 	 * Executes the custom hook that we defined in the constructor for adding the separator.
 	 * Passes the position of the menu separator to the custom hook.
 	 */
-	function set_admin_menu_separator() {
+	public function set_admin_menu_separator() {
 	
 		// NOTE:	Because the 'Settings' menu is located at position 80, we can insert
 		//		 	a separator at 79. Refer to the README for more information on
 		// 			the positions of the WordPress default menu items.
 		
-		do_action( 'init_custom_menu_separator', 79 );
+		do_action( 'admin_init', 79 );
 		
 	} // end set_admin_menu_separator
   
 } // end class
 
-new Custom_Menu_Separator();
-
-?>
+$GLOBALS['custom-menu-separator'] = new Custom_Menu_Separator();
