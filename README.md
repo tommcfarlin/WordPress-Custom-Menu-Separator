@@ -167,3 +167,8 @@ Array
 3. Activate it on the Plugin's listing page
 
 You should notice a new separator appear above the 'Settings' menu. This can be changed by editing Line 81 of `plugin.php`
+
+## Changelog
+
+_1.0 22 March 2013_
+* Updating the hooks to play nicely with WordPress 3.5
