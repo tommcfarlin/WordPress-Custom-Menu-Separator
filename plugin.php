@@ -51,7 +51,7 @@ class Custom_Menu_Separator {
 	 *
 	 * @param	int	$position	Where to insert the custom separator
 	 */
-	publc function add_admin_menu_separator( $position ) {
+	public function add_admin_menu_separator( $position ) {
 		
 		global $menu;
 
