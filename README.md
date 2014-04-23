@@ -14,7 +14,7 @@ Array
             [0] => Dashboard
             [1] => read
             [2] => index.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-top-first menu-icon-dashboard menu-top-last
             [5] => menu-dashboard
             [6] => div
@@ -22,10 +22,10 @@ Array
 
     [4] => Array
         (
-            [0] => 
+            [0] =>
             [1] => read
             [2] => separator1
-            [3] => 
+            [3] =>
             [4] => wp-menu-separator
         )
 
@@ -34,7 +34,7 @@ Array
             [0] => Posts
             [1] => edit_posts
             [2] => edit.php
-            [3] => 
+            [3] =>
             [4] => open-if-no-js menu-top menu-icon-post menu-top-first
             [5] => menu-posts
             [6] => div
@@ -45,7 +45,7 @@ Array
             [0] => Media
             [1] => upload_files
             [2] => upload.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-media
             [5] => menu-media
             [6] => div
@@ -56,7 +56,7 @@ Array
             [0] => Links
             [1] => manage_links
             [2] => link-manager.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-links
             [5] => menu-links
             [6] => div
@@ -67,7 +67,7 @@ Array
             [0] => Pages
             [1] => edit_pages
             [2] => edit.php?post_type=page
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-page
             [5] => menu-pages
             [6] => div
@@ -78,7 +78,7 @@ Array
             [0] => Comments <span class='awaiting-mod count-0'><span class='pending-count'>0</span></span>
             [1] => edit_posts
             [2] => edit-comments.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-comments menu-top-last menu-top-last
             [5] => menu-comments
             [6] => div
@@ -86,19 +86,19 @@ Array
 
     [57] => Array
         (
-            [0] => 
+            [0] =>
             [1] => read
             [2] => separator57
-            [3] => 
+            [3] =>
             [4] => wp-menu-separator
         )
 
     [59] => Array
         (
-            [0] => 
+            [0] =>
             [1] => read
             [2] => separator2
-            [3] => 
+            [3] =>
             [4] => wp-menu-separator
         )
 
@@ -107,7 +107,7 @@ Array
             [0] => Appearance
             [1] => switch_themes
             [2] => themes.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-appearance menu-top-first
             [5] => menu-appearance
             [6] => div
@@ -118,7 +118,7 @@ Array
             [0] => Plugins <span class='update-plugins count-0'><span class='plugin-count'>0</span></span>
             [1] => activate_plugins
             [2] => plugins.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-plugins
             [5] => menu-plugins
             [6] => div
@@ -129,7 +129,7 @@ Array
             [0] => Users
             [1] => list_users
             [2] => users.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-users
             [5] => menu-users
             [6] => div
@@ -140,7 +140,7 @@ Array
             [0] => Tools
             [1] => edit_posts
             [2] => tools.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-tools
             [5] => menu-tools
             [6] => div
@@ -151,7 +151,7 @@ Array
             [0] => Settings
             [1] => manage_options
             [2] => options-general.php
-            [3] => 
+            [3] =>
             [4] => menu-top menu-icon-settings menu-top-last
             [5] => menu-settings
             [6] => div
@@ -169,6 +169,11 @@ Array
 You should notice a new separator appear above the 'Settings' menu. This can be changed by editing Line 81 of `plugin.php`
 
 ## Changelog
+
+_1.2.0 23 April 2014_
+* Minor code refactoring
+* Changing the wall the callback is implemented for `admin_init`
+* WordPress 3.9.0 compatibility fixes
 
 _1.1 22 March 2013_
 * Updating the hooks to play nicely with WordPress 3.5

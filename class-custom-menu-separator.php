@@ -3,16 +3,16 @@
 Plugin Name: Custom Menu Separator
 Plugin URI: http://tommcfarlin.com/wordpress-menu-separator
 Description: A simple plugin for adding a custom menu separator in the WordPress administration menu.
-Version: 1.1
+Version: 1.2.0
 Author: Tom McFarlin
 Author URI: http://tommcfarlin.com
 Author Email: tom@tommcfarlin.com
 License:
 
-  Copyright 2012 - 2013 Tom McFarlin (tom@tommcfarlin.com)
+  Copyright 2012 - 2014 Tom McFarlin (tom@tommcfarlin.com)
 
   This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License, version 2, as 
+  it under the terms of the GNU General Public License, version 2, as
   published by the Free Software Foundation.
 
   This program is distributed in the hope that it will be useful,
@@ -23,40 +23,40 @@ License:
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-  
+
 */
 
 class Custom_Menu_Separator {
-	 
+
 	/*--------------------------------------------*
 	 * Constructor
 	 *--------------------------------------------*/
-	
+
 	/**
 	 * Initializes the plugin by adding default actions.
 	 */
 	function __construct() {
-	
 		add_action( 'admin_init', array( $this, 'add_admin_menu_separator' ) );
-		add_action( 'init', array( $this, 'set_admin_menu_separator' ) );
-
 	} // end constructor
-	
+
 	/*--------------------------------------------*
 	 * Core Functions
 	 *---------------------------------------------*/
-	
+
 	/**
 	 * Adds a menu separator to the administration menu at the specified position.
 	 *
 	 * @param	int	$position	Where to insert the custom separator
 	 */
-	public function add_admin_menu_separator( $position ) {
-		
-		global $menu;
+	public function add_admin_menu_separator() {
 
-		// NOTE:	If using this in a production environment, this would be a good place to
-		//			make sure that the $position isn't one of the existing menu items values.
+		global $menu;
+		$position = 76;
+
+		/**
+		 * NOTE:	If using this in a production environment, this would be a good place to
+		 *			make sure that the $position isn't one of the existing menu items values.
+		 */
 
 		$menu[ $position ] = array(
 			0	=>	'',							// The text of the menu item
@@ -65,23 +65,8 @@ class Custom_Menu_Separator {
 			3	=>	'',							// Empty by default.
 			4	=>	'wp-menu-separator'			// Custom class names for the menu item
 		);
-		
+		ksort( $menu );
+
 	} // end add_admin_menu_separator
 
-	/**
-	 * Executes the custom hook that we defined in the constructor for adding the separator.
-	 * Passes the position of the menu separator to the custom hook.
-	 */
-	public function set_admin_menu_separator() {
-	
-		// NOTE:	Because the 'Settings' menu is located at position 80, we can insert
-		//		 	a separator at 79. Refer to the README for more information on
-		// 			the positions of the WordPress default menu items.
-		
-		do_action( 'admin_init', 79 );
-		
-	} // end set_admin_menu_separator
-  
 } // end class
-
-$GLOBALS['custom-menu-separator'] = new Custom_Menu_Separator();
