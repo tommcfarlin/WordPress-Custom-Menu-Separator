@@ -1,8 +1,5 @@
 <?php
 /*
-Plugin Name: Custom Menu Separator
-Plugin URI: http://tommcfarlin.com/wordpress-menu-separator
-Description: A simple plugin for adding a custom menu separator in the WordPress administration menu.
 Version: 1.2.0
 Author: Tom McFarlin
 Author URI: http://tommcfarlin.com
